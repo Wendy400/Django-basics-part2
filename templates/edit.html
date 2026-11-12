@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact</title>
+
+     {% load static %}
+
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</head>
+<body>
+    <h1>Edit Contact Information</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptates laborum sapiente odit, doloremque illo nemo ducimus quibusdam soluta alias totam velit. Qui odio sapiente libero, necessitatibus culpa voluptates enim!
+    Rem omnis magnam, suscipit voluptas ab aperiam repellat debitis hic amet assumenda in impedit, veniam voluptatibus officia consequuntur vel delectus beatae laudantium dolorem earum culpa quod? Ab ea doloremque possimus.</p>
+
+    <form  method="post" >
+              {% csrf_token %} <!--encryption and security-->
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit" class="btn btn-success">Update</button>
+                </div>
+
+              </div>
+            </form>
+    
+</body>
+</html>

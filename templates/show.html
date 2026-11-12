@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+
+<body>
+    <h1 class="text-center">All contacts</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos iste modi repellendus, eius perferendis quasi nihil ipsam consequatur illum facilis porro placeat nobis! Totam assumenda cumque est maxime recusandae eos.
+    Quam dignissimos voluptatum cumque asperiores sint, distinctio tempore cupiditate sunt perferendis culpa quisquam quis error enim libero dolores molestias ea unde impedit nihil tenetur expedita ex deleniti autem id. Odit?</p>
+
+    <table class="table table-bordered">
+        
+        
+        
+        <tr class= table-dark>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+
+        {% for contact in all %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.subject }}</td>
+            <td>{{ contact.message }}</td>
+            <td>
+                <a href="/edit/{{contact.id}}" class="btn btn-warning">Edit</a>
+                <a href="/delete/{{contact.id}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+         {% endfor %}
+
+
+    </table>
+
+</body>
+
+</html>
